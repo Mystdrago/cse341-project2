@@ -15,7 +15,7 @@ const validateplayer = (data) => {
 }
 
 const getAll = async (req, res) => {
-    //swagger.tags=['players']
+    //#swagger.tags=['players']
     try {
         const players = await mongodb.getDatabase().db().collection('players').find().toArray();
         res.status(200).json(players);
@@ -25,7 +25,7 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
-    //swagger.tags=['players']
+    //#swagger.tags=['players']
     try {
         const playerId = new ObjectId(req.params.id);
         const player = await mongodb.getDatabase().db().collection('players').findOne({_id: playerId});
@@ -37,7 +37,7 @@ const getSingle = async (req, res) => {
 };
 
 const addPlayer = async (req, res) => {
-    //swagger.tags=['players']
+    //#swagger.tags=['players']
     try {
         const error = validateplayer(req.body);
         if (error) return res.status(400).json({ error });
@@ -55,7 +55,7 @@ const addPlayer = async (req, res) => {
 };
 
 const updatePlayer = async (req, res) => {
-    //swagger.tags=['players']
+    //#swagger.tags=['players']
     try {
         const error = validateplayer(req.body);
         if (error) return res.status(400).json({ error });
@@ -77,7 +77,7 @@ const updatePlayer = async (req, res) => {
 };
 
 const removePlayer = async (req, res) => {
-    //swagger.tags=['players']
+    //#swagger.tags=['players']
     try {
         const playerId = new ObjectId(req.params.id);
         const response = await mongodb.getDatabase().db().collection('players').deleteOne({ _id: playerId });

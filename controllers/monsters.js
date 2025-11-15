@@ -14,7 +14,7 @@ const validateMonster = (data) => {
 }
 
 const getAll = async (req, res) => {
-    //swagger.tags=['monsters']
+    //#swagger.tags=['monsters']
     try {
         const monsters = await mongodb.getDatabase().db().collection('monsters').find().toArray();
         res.status(200).json(monsters);
@@ -24,7 +24,7 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
-    //swagger.tags=['monsters']
+    //#swagger.tags=['monsters']
     try {
         const monsterId = new ObjectId(req.params.id);
         const monster = await mongodb.getDatabase().db().collection('monsters').findOne({_id: monsterId});
@@ -36,7 +36,7 @@ const getSingle = async (req, res) => {
 };
 
 const addMonster = async (req, res) => {
-    //swagger.tags=['monsters']
+    //#swagger.tags=['monsters']
     try {
         const error = validateMonster(req.body);
         if (error) return res.status(400).json({ error });
@@ -54,7 +54,7 @@ const addMonster = async (req, res) => {
 };
 
 const updateMonster = async (req, res) => {
-    //swagger.tags=['monsters']
+    //#swagger.tags=['monsters']
     try {
         const error = validateMonster(req.body);
         if (error) return res.status(400).json({ error });
@@ -76,7 +76,7 @@ const updateMonster = async (req, res) => {
 };
 
 const removeMonster = async (req, res) => {
-    //swagger.tags=['monsters']
+    //#swagger.tags=['monsters']
     try {
         const monsterId = new ObjectId(req.params.id);
         const response = await mongodb.getDatabase().db().collection('monsters').deleteOne({ _id: monsterId });
