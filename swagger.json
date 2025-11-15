@@ -148,7 +148,9 @@
         }
       },
       "post": {
-        "tags": [],
+        "tags": [
+          "players"
+        ],
         "description": "",
         "responses": {
           "201": {

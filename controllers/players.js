@@ -41,14 +41,18 @@ const getSingle = async (req, res) => {
 };
 
 const addPlayer = async (req, res) => {
-  //#swagger.tags['players']
+    //#swagger.tags=['players']
     try {
         const validationError = validatePlayer(req.body);
         if (validationError) return res.status(400).json({ error: validationError });
 
         const response = await mongodb.getDatabase().db().collection('players').insertOne(req.body);
-        if (response.acknowledged) res.status(201).json({ id: response.insertedId });
-        else res.status(500).json({ error: "Failed to add player" });
+
+        if (response.acknowledged) {
+            res.status(201).json({ id: response.insertedId });
+        } else {
+            res.status(500).json({ error: "Failed to add player" });
+        }
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
