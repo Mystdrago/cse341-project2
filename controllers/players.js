@@ -41,6 +41,7 @@ const getSingle = async (req, res) => {
 };
 
 const addPlayer = async (req, res) => {
+  //#swagger.tags['players']
     try {
         const validationError = validatePlayer(req.body);
         if (validationError) return res.status(400).json({ error: validationError });
@@ -54,6 +55,7 @@ const addPlayer = async (req, res) => {
 };
 
 const updatePlayer = async (req, res) => {
+  //#swagger.tags=['players']
     try {
         const validationError = validatePlayer(req.body);
         if (validationError) return res.status(400).json({ error: validationError });

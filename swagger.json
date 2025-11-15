@@ -41,6 +41,9 @@
         }
       },
       "post": {
+        "tags": [
+          "monsters"
+        ],
         "description": "",
         "responses": {
           "201": {
@@ -79,6 +82,9 @@
         }
       },
       "put": {
+        "tags": [
+          "monsters"
+        ],
         "description": "",
         "parameters": [
           {
@@ -142,6 +148,7 @@
         }
       },
       "post": {
+        "tags": [],
         "description": "",
         "responses": {
           "201": {
@@ -180,6 +187,9 @@
         }
       },
       "put": {
+        "tags": [
+          "players"
+        ],
         "description": "",
         "parameters": [
           {

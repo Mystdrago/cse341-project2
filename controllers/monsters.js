@@ -17,7 +17,7 @@ function validateMonster(body) {
         if (!body[field]) return `${field} is required`;
         if (typeof body[field] !== "string") return `${field} must be a string`;
     }
-    return null; // valid
+    return null;
 }
 
 const getAll = async (req, res) => {
@@ -40,6 +40,7 @@ const getSingle = async (req, res) => {
 };
 
 const addMonster = async (req, res) => {
+  //#swagger.tags=['monsters']
     try {
         const validationError = validateMonster(req.body);
         if (validationError) return res.status(400).json({ error: validationError });
@@ -53,6 +54,7 @@ const addMonster = async (req, res) => {
 };
 
 const updateMonster = async (req, res) => {
+  //#swagger.tags=['monsters']
     try {
         const validationError = validateMonster(req.body);
         if (validationError) return res.status(400).json({ error: validationError });
