@@ -42,6 +42,7 @@ const getSingle = async (req, res) => {
 
 const addPlayer = async (req, res) => {
     //#swagger.tags=['players']
+    console.log('BODY RECEIVED:', req.body);
     try {
         const validationError = validatePlayer(req.body);
         if (validationError) return res.status(400).json({ error: validationError });
