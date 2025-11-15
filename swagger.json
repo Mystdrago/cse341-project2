@@ -44,6 +44,41 @@
           "monsters"
         ],
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "level": {
+                  "example": "any"
+                },
+                "size": {
+                  "example": "any"
+                },
+                "types": {
+                  "example": "any"
+                },
+                "healthPoints": {
+                  "example": "any"
+                },
+                "staminaPoints": {
+                  "example": "any"
+                },
+                "attentionPoints": {
+                  "example": "any"
+                },
+                "luckyPoints": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -94,6 +129,39 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "level": {
+                  "example": "any"
+                },
+                "size": {
+                  "example": "any"
+                },
+                "types": {
+                  "example": "any"
+                },
+                "healthPoints": {
+                  "example": "any"
+                },
+                "staminaPoints": {
+                  "example": "any"
+                },
+                "attentionPoints": {
+                  "example": "any"
+                },
+                "luckyPoints": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -143,12 +211,12 @@
           "players"
         ],
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
@@ -157,12 +225,47 @@
           "players"
         ],
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "level": {
+                  "example": "any"
+                },
+                "size": {
+                  "example": "any"
+                },
+                "species": {
+                  "example": "any"
+                },
+                "types": {
+                  "example": "any"
+                },
+                "healthPoints": {
+                  "example": "any"
+                },
+                "staminaPoints": {
+                  "example": "any"
+                },
+                "attentionPoints": {
+                  "example": "any"
+                },
+                "luckyPoints": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
+          "204": {
+            "description": "No Content"
           },
           "500": {
             "description": "Internal Server Error"
@@ -176,6 +279,9 @@
           "players"
         ],
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -187,12 +293,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
@@ -207,17 +307,44 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "level": {
+                  "example": "any"
+                },
+                "size": {
+                  "example": "any"
+                },
+                "types": {
+                  "example": "any"
+                },
+                "healthPoints": {
+                  "example": "any"
+                },
+                "staminaPoints": {
+                  "example": "any"
+                },
+                "attentionPoints": {
+                  "example": "any"
+                },
+                "luckyPoints": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
+          "204": {
+            "description": "No Content"
           },
           "500": {
             "description": "Internal Server Error"
@@ -238,95 +365,12 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
+          "204": {
+            "description": "No Content"
           },
           "500": {
             "description": "Internal Server Error"
           }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "Monster": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "any"
-        },
-        "level": {
-          "type": "string",
-          "example": "any"
-        },
-        "size": {
-          "type": "string",
-          "example": "any"
-        },
-        "types": {
-          "type": "string",
-          "example": "any"
-        },
-        "healthPoints": {
-          "type": "string",
-          "example": "any"
-        },
-        "staminaPoints": {
-          "type": "string",
-          "example": "any"
-        },
-        "attentionPoints": {
-          "type": "string",
-          "example": "any"
-        },
-        "luckyPoints": {
-          "type": "string",
-          "example": "any"
-        }
-      }
-    },
-    "Player": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "any"
-        },
-        "level": {
-          "type": "string",
-          "example": "any"
-        },
-        "size": {
-          "type": "string",
-          "example": "any"
-        },
-        "species": {
-          "type": "string",
-          "example": "any"
-        },
-        "types": {
-          "type": "string",
-          "example": "any"
-        },
-        "healthPoints": {
-          "type": "string",
-          "example": "any"
-        },
-        "staminaPoints": {
-          "type": "string",
-          "example": "any"
-        },
-        "attentionPoints": {
-          "type": "string",
-          "example": "any"
-        },
-        "luckyPoints": {
-          "type": "string",
-          "example": "any"
         }
       }
     }
