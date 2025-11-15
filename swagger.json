@@ -5,7 +5,7 @@
     "description": "Contacts Api",
     "version": "1.0.0"
   },
-"host": "cse341-project2-qpcd.onrender.com",
+    "host": "cse341-project2-qpcd.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -26,6 +26,9 @@
     },
     "/monsters/": {
       "get": {
+        "tags": [
+          "monsters"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -37,6 +40,9 @@
         }
       },
       "post": {
+        "tags": [
+          "monsters"
+        ],
         "description": "",
         "responses": {
           "201": {
@@ -53,6 +59,9 @@
     },
     "/monsters/{id}": {
       "get": {
+        "tags": [
+          "monsters"
+        ],
         "description": "",
         "parameters": [
           {
@@ -75,6 +84,9 @@
         }
       },
       "put": {
+        "tags": [
+          "monsters"
+        ],
         "description": "",
         "parameters": [
           {
@@ -100,6 +112,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "monsters"
+        ],
         "description": "",
         "parameters": [
           {
@@ -124,6 +139,9 @@
     },
     "/players/": {
       "get": {
+        "tags": [
+          "players"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -135,6 +153,9 @@
         }
       },
       "post": {
+        "tags": [
+          "players"
+        ],
         "description": "",
         "responses": {
           "201": {
@@ -151,6 +172,9 @@
     },
     "/players/{id}": {
       "get": {
+        "tags": [
+          "players"
+        ],
         "description": "",
         "parameters": [
           {
@@ -173,6 +197,9 @@
         }
       },
       "put": {
+        "tags": [
+          "players"
+        ],
         "description": "",
         "parameters": [
           {
@@ -198,6 +225,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "players"
+        ],
         "description": "",
         "parameters": [
           {
