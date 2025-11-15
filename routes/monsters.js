@@ -7,4 +7,10 @@ router.get('/', monsterController.getAll);
 
 router.get('/:id', monsterController.getSingle);
 
+router.post('/', monsterController.addMonster);
+
+router.put('/:id', monsterController.updateMonster);
+
+router.delete('/:id', monsterController.removeMonster);
+
 module.exports = router;
