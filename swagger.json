@@ -5,7 +5,7 @@
     "description": "RPG Api",
     "version": "1.0.0"
   },
-  "host": "cse341-project2-qpcd.onrender.com",
+    "host": "cse341-project2-qpcd.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -112,9 +112,6 @@
         }
       },
       "delete": {
-        "tags": [
-          "monsters"
-        ],
         "description": "",
         "parameters": [
           {
