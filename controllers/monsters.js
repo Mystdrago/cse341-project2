@@ -34,7 +34,7 @@ const addMonster = async (req, res) => {
 
 
         const requiredFields = [
-            'name', 'level', 'size', 'types',
+            'name', 'level', 'size', 'type',
             'healthPoints', 'staminaPoints', 'attentionPoints', 'luckyPoints'
         ];
 
@@ -63,7 +63,7 @@ const updateMonster = async (req, res) => {
         const response = await mongodb.getDatabase().db().collection('monsters').replaceOne({_id: monsterId}, body);
 
         const requiredFields = [
-            'name', 'level', 'size', 'types',
+            'name', 'level', 'size', 'type',
             'healthPoints', 'staminaPoints', 'attentionPoints', 'luckyPoints'
         ];
 
@@ -86,6 +86,7 @@ const updateMonster = async (req, res) => {
 };
 
 const removeMonster = async (req, res) => {
+    //#swagger.tags=['monsters']
     try {
         const monsterId = new ObjectId(String(req.params.id));
         const response = await mongodb.getDatabase().db().collection('monsters').deleteOne({_id: monsterId});

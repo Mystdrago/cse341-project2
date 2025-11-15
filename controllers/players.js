@@ -32,7 +32,7 @@ const addPlayer = async (req, res) => {
         const response = await mongodb.getDatabase().db().collection('players').insertOne(body);
 
         const requiredFields = [
-            'name', 'level', 'size', 'species', 'types',
+            'name', 'level', 'size', 'species', 'type',
             'healthPoints', 'staminaPoints', 'attentionPoints', 'luckyPoints'
         ];
 
@@ -60,7 +60,7 @@ const updatePlayer = async (req, res) => {
         const response = await mongodb.getDatabase().db().collection('players').replaceOne({_id: playerId}, body);
 
         const requiredFields = [
-            'name', 'level', 'size', 'species', 'types',
+            'name', 'level', 'size', 'species', 'type',
             'healthPoints', 'staminaPoints', 'attentionPoints', 'luckyPoints'
         ];
 
