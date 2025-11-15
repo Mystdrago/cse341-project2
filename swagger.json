@@ -60,7 +60,7 @@
                 "size": {
                   "example": "any"
                 },
-                "types": {
+                "type": {
                   "example": "any"
                 },
                 "healthPoints": {
@@ -145,7 +145,7 @@
                 "size": {
                   "example": "any"
                 },
-                "types": {
+                "type": {
                   "example": "any"
                 },
                 "healthPoints": {
@@ -211,12 +211,12 @@
           "players"
         ],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -244,7 +244,7 @@
                 "species": {
                   "example": "any"
                 },
-                "types": {
+                "type": {
                   "example": "any"
                 },
                 "healthPoints": {
@@ -264,8 +264,11 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "500": {
             "description": "Internal Server Error"
@@ -279,9 +282,6 @@
           "players"
         ],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "id",
@@ -293,6 +293,12 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -323,7 +329,10 @@
                 "size": {
                   "example": "any"
                 },
-                "types": {
+                "species": {
+                  "example": "any"
+                },
+                "type": {
                   "example": "any"
                 },
                 "healthPoints": {
@@ -343,8 +352,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -365,8 +380,11 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
