@@ -1,6 +1,26 @@
 const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
+function validatePlayer(body) {
+    const requiredFields = [
+        "name",
+        "level",
+        "size",
+        "species",
+        "types",
+        "healthPoints",
+        "staminaPoints",
+        "attentionPoints",
+        "luckyPoints"
+    ];
+
+    for (const field of requiredFields) {
+        if (!body[field]) return `${field} is required`;
+        if (typeof body[field] !== "string") return `${field} must be a string`;
+    }
+    return null; // valid
+}
+
 const getAll = async (req, res) => {
     //#swagger.tags=['players']
     const result = await mongodb.getDatabase().db().collection('players').find();
@@ -21,46 +41,34 @@ const getSingle = async (req, res) => {
 };
 
 const addPlayer = async (req, res) => {
-    //#swagger.tags=['players']
-    const player = {
-        name: req.body.name,
-        level: req.body.level,
-        size: req.body.size,
-        species: req.body.species,
-        types: req.body.types,
-        healthPoints: req.body.healthPoints,
-        staminaPoints: req.body.staminaPoints,
-        attentionPoints: req.body.attentionPoints,
-        luckyPoints: req.body.luckyPoints
-    };
-    const response = await mongodb.getDatabase().db().collections('players').insertOne(player);
-    if (response.acknowledged) {
-    res.status(204).send();
-  }
-  else {
-    res.status(500).json(response.error || 'Some error occured while adding the player.')
-  }
+    try {
+        const validationError = validatePlayer(req.body);
+        if (validationError) return res.status(400).json({ error: validationError });
+
+        const response = await mongodb.getDatabase().db().collection('players').insertOne(req.body);
+        if (response.acknowledged) res.status(201).json({ id: response.insertedId });
+        else res.status(500).json({ error: "Failed to add player" });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 };
 
 const updatePlayer = async (req, res) => {
-    //#swagger.tags=['players']
-  const playerId = new ObjectId(String(req.params.id));
-  const player = {
-    name: req.body.name,
-        level: req.body.level,
-        size: req.body.size,
-        types: req.body.types,
-        healthPoints: req.body.healthPoints,
-        staminaPoints: req.body.staminaPoints,
-        attentionPoints: req.body.attentionPoints,
-        luckyPoints: req.body.luckyPoints
-  };
-  const response = await mongodb.getDatabase().db().collection('players').replaceOne({_id: playerId}, player);
-    if (response.modifiedCount > 0) {
-    res.status(204).send();
-  } else {
-    res.status(500).json(response.error || 'Some error occured while updating the player.')
-  }
+    try {
+        const validationError = validatePlayer(req.body);
+        if (validationError) return res.status(400).json({ error: validationError });
+
+        const playerId = new ObjectId(req.params.id);
+        const response = await mongodb.getDatabase().db().collection('players').replaceOne(
+            { _id: playerId },
+            req.body
+        );
+
+        if (response.modifiedCount > 0) res.status(204).send();
+        else res.status(404).json({ error: "player not found" });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 };
 
 const removePlayer = async (req, res) => {
