@@ -5,7 +5,7 @@
     "description": "Contacts Api",
     "version": "1.0.0"
   },
-  "host": "cse341-project2-qpcd.onrender.com",
+"host": "cse341-project2-qpcd.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -26,23 +26,17 @@
     },
     "/monsters/": {
       "get": {
-        "tags": [
-          "monsters"
-        ],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
-        "tags": [
-          "monsters"
-        ],
         "description": "",
         "responses": {
           "201": {
@@ -59,13 +53,7 @@
     },
     "/monsters/{id}": {
       "get": {
-        "tags": [
-          "monsters"
-        ],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "id",
@@ -77,13 +65,16 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "put": {
-        "tags": [
-          "monsters"
-        ],
         "description": "",
         "parameters": [
           {
@@ -94,8 +85,8 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
           },
           "400": {
             "description": "Bad Request"
@@ -109,9 +100,6 @@
         }
       },
       "delete": {
-        "tags": [
-          "monsters"
-        ],
         "description": "",
         "parameters": [
           {
@@ -122,8 +110,11 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -133,23 +124,17 @@
     },
     "/players/": {
       "get": {
-        "tags": [
-          "players"
-        ],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
-        "tags": [
-          "players"
-        ],
         "description": "",
         "responses": {
           "201": {
@@ -166,13 +151,7 @@
     },
     "/players/{id}": {
       "get": {
-        "tags": [
-          "players"
-        ],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "id",
@@ -184,13 +163,16 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "put": {
-        "tags": [
-          "players"
-        ],
         "description": "",
         "parameters": [
           {
@@ -201,8 +183,8 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
           },
           "400": {
             "description": "Bad Request"
@@ -216,9 +198,6 @@
         }
       },
       "delete": {
-        "tags": [
-          "players"
-        ],
         "description": "",
         "parameters": [
           {
@@ -229,8 +208,11 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
