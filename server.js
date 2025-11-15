@@ -3,9 +3,11 @@ const bodyParser = require('body-parser');
 const mongodb = require('./data/database');
 const app = express();
 
+
 const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
