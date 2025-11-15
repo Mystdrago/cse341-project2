@@ -5,36 +5,11 @@ const doc = {
         title: 'Players and Monsters Api',
         description: 'RPG Api'
     },
-    host: 'localhost:3001', 
-    schemes: ['http', 'https'],
-    definitions: {
-        Monster: {
-            name: "any",
-            level: "any",
-            size: "any",
-            types: "any",
-            healthPoints: "any",
-            staminaPoints: "any",
-            attentionPoints: "any",
-            luckyPoints: "any"
-        },
-        Player: {
-            name: "any",
-            level: "any",
-            size: "any",
-            species: "any",
-            types: "any",
-            healthPoints: "any",
-            staminaPoints: "any",
-            attentionPoints: "any",
-            luckyPoints: "any"
-        }
-    }
+    host: 'localhost:3001',
+    schemes: ['http', 'https']
 };
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/index.js'];
+const endpointsFile = ['./routes/index.js'];
 
-swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
-    console.log('Swagger JSON generated successfully.');
-});
+swaggerAutogen(outputFile, endpointsFile, doc);
