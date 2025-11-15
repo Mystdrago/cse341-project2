@@ -1,11 +1,11 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Conacts Api",
-    "description": "Contacts Api",
+    "title": "Players and Monsters Api",
+    "description": "RPG Api",
     "version": "1.0.0"
   },
-   "host": "cse341-project2-qpcd.onrender.com",
+  "host": "cse341-project2-qpcd.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -247,6 +247,86 @@
           "500": {
             "description": "Internal Server Error"
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Monster": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "any"
+        },
+        "level": {
+          "type": "string",
+          "example": "any"
+        },
+        "size": {
+          "type": "string",
+          "example": "any"
+        },
+        "types": {
+          "type": "string",
+          "example": "any"
+        },
+        "healthPoints": {
+          "type": "string",
+          "example": "any"
+        },
+        "staminaPoints": {
+          "type": "string",
+          "example": "any"
+        },
+        "attentionPoints": {
+          "type": "string",
+          "example": "any"
+        },
+        "luckyPoints": {
+          "type": "string",
+          "example": "any"
+        }
+      }
+    },
+    "Player": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "any"
+        },
+        "level": {
+          "type": "string",
+          "example": "any"
+        },
+        "size": {
+          "type": "string",
+          "example": "any"
+        },
+        "species": {
+          "type": "string",
+          "example": "any"
+        },
+        "types": {
+          "type": "string",
+          "example": "any"
+        },
+        "healthPoints": {
+          "type": "string",
+          "example": "any"
+        },
+        "staminaPoints": {
+          "type": "string",
+          "example": "any"
+        },
+        "attentionPoints": {
+          "type": "string",
+          "example": "any"
+        },
+        "luckyPoints": {
+          "type": "string",
+          "example": "any"
         }
       }
     }
