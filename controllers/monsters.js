@@ -2,7 +2,7 @@ const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
 
 const validateMonster = (monster) => {
-    const requiredFields = ['name', 'level', 'size', 'types', 'healthPoints', 'staminaPoints', 'attentionPoints', 'luckyPoints'];
+    const requiredFields = ['name', 'level', 'size', 'type', 'healthPoints', 'staminaPoints', 'attentionPoints', 'luckyPoints'];
     for (const field of requiredFields) {
         if (monster[field] === undefined || monster[field] === null) {
             return false;
@@ -41,7 +41,7 @@ const addMonster = async (req, res) => {
             name: req.body.name,
             level: req.body.level,
             size: req.body.size,
-            types: req.body.types,
+            type: req.body.type,
             healthPoints: req.body.healthPoints,
             staminaPoints: req.body.staminaPoints,
             attentionPoints: req.body.attentionPoints,
@@ -66,7 +66,7 @@ const updateMonster = async (req, res) => {
             name: req.body.name,
             level: req.body.level,
             size: req.body.size,
-            types: req.body.types,
+            type: req.body.type,
             healthPoints: req.body.healthPoints,
             staminaPoints: req.body.staminaPoints,
             attentionPoints: req.body.attentionPoints,
