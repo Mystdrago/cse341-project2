@@ -5,7 +5,7 @@ const doc = {
         title: 'Players and Monsters Api',
         description: 'RPG Api'
     },
-    host: 'localhost:3001',  // Change this to your Render URL in production
+    host: 'localhost:3001', 
     schemes: ['http', 'https'],
     definitions: {
         Monster: {
