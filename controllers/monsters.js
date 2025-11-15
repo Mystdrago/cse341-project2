@@ -1,6 +1,6 @@
 const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
-console.log('req.body:', req.body);
+
 
 const getAll = async (req, res) => {
         //#swagger.tags=['monsters']
@@ -28,6 +28,7 @@ const getSingle = async (req, res) => {
 
 const addMonster = async (req, res) => {
         //#swagger.tags=['monsters']
+        console.log('req.body:', req.body);
     try {
         const body = req.body || {};
         const response = await mongodb.getDatabase().db().collection('monsters').insertOne(body);
