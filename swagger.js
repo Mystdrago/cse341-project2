@@ -6,7 +6,20 @@ const doc = {
         description: 'RPG Api'
     },
     host: 'localhost:3001',
-    schemes: ['http', 'https']
+    schemes: ['http', 'https'],
+    securityDefinitions: {
+        bearerAuth: {
+            type: 'apiKey',
+            name: 'Authorization',
+            in: 'header',
+            description: 'Enter your bearer token in the format **Bearer &lt;token&gt;**'
+        }
+    },
+    security: [
+        {
+            bearerAuth: []
+        }
+    ]
 };
 
 const outputFile = './swagger.json';

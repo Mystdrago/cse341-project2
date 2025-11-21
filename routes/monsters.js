@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const monsterController = require('../controllers/monsters')
+const oauthCheck = require('../middleware/auth');
 
 router.get('/', monsterController.getAll);
 
@@ -11,6 +12,10 @@ router.post('/', monsterController.addMonster);
 
 router.put('/:id', monsterController.updateMonster);
 
-router.delete('/:id', monsterController.removeMonster);
+router.delete('/:id',
+    //#swagger.security=[{ "bearerAuth": [] }]
+    oauthCheck, 
+    monsterController.removeMonster
+);
 
 module.exports = router;
